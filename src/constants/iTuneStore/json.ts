@@ -23,5 +23,11 @@ export enum jsonConstant {
   COUNTER_CHANGE = 'COUNTER_CHANGE',
   Home = 'Home',
   detailPageHeaderColor = '#D2DAFF',
-  id = "im:id"
+  id = "im:id",
+  headerBackgroundColor = '#7FBCD2',
+  headerTextColor = 'black',
+  INCREMENT = "INCREMENT",
+  DECREMENT = 'DECREMENT',
+  RESET = 'RESET'
+
 }

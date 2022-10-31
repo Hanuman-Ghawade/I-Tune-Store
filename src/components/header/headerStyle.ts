@@ -1,27 +1,28 @@
-import { StyleSheet } from 'react-native';
+import { jsonConstant } from '../../constants/iTuneStore/json';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 
+const { height, width, fontScale, scale } = Dimensions.get('window');
+console.log(height);
+console.log(width);
+console.log(scale);
+console.log(fontScale);
 const styles = StyleSheet.create({
-
     container: {
         flexDirection: 'row',
-        backgroundColor: '#7FBCD2',
-    
-    },
-    headerContainer: {
-
+        backgroundColor: jsonConstant.headerBackgroundColor, 
     },
     headerText: {
-        color: 'black',
-        fontSize: 25,
+        color: jsonConstant.headerTextColor,
+        fontSize: scale * 12,
         fontWeight: 'bold',
-        marginLeft: 40,
+        marginLeft: width * 0.08,
     },
     iconView: {
-        paddingLeft: 10,
+        paddingLeft: width * 0.02,
     },
     iconStyle: {
-        height: 40,
-        width: 40,
+        height: height * 0.07,
+        width: width * 0.09,
     },
 });
 export { styles };

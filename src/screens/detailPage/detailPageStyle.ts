@@ -1,11 +1,12 @@
-import { StyleSheet } from 'react-native';
 import { jsonConstant } from '../../constants/iTuneStore/json';
+import { StyleSheet, Dimensions } from 'react-native';
 
+const { height, width, fontScale, scale } = Dimensions.get('window');
 const styles = StyleSheet.create({
 
     imageStyle: {
-        width: 100,
-        height: 100,
+        width: width * 0.28,
+        height: height * 0.16,
     },
     listContainer: {
         borderRadius: 8,
@@ -17,19 +18,20 @@ const styles = StyleSheet.create({
         shadowRadius: 25,
         elevation: 10,
         backgroundColor: jsonConstant.listBackgroundColor,
-        padding: 10,
-        margin: 10,
+        padding: width * 0.02,
+        margin: width *0.02,
     },
     imageTextContainer: {
         flexDirection: 'row'
     },
     appName: {
-        fontSize: 22,
+        fontSize: scale * 9,
         fontWeight: 'bold',
         margin: 10,
+        width: '100%',
     },
     artist: {
-        fontSize: 18,
+        fontSize: scale * 7,
         fontWeight: 'bold',
         margin: 10,
     },
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     title: {
-        fontSize: 18,
+        fontSize: scale * 7,
         margin: 10,
         fontWeight: 'bold',
 
@@ -54,41 +56,41 @@ const styles = StyleSheet.create({
 
     },
     category: {
-        fontSize: 20,
-        marginLeft: 4,
+        fontSize: scale * 7,
+        marginLeft: width * 0.015,
 
     },
     categoryText: {
-        fontSize: 16,
+        fontSize: scale * 6,
         fontWeight: 'bold',
-        marginLeft: 24,
+        marginLeft: width * 0.025,
     },
     releaseDate: {
-        fontSize: 20,
-        marginLeft: 16,
+        fontSize: scale * 7,
+        marginLeft: width * 0.05,
     },
     releaseDateText: {
-        fontSize: 16,
+        fontSize: scale * 6,
         fontWeight: 'bold',
-        marginLeft: 24,
+        marginLeft: width * 0.07,
     },
     price: {
-        fontSize: 20,
-        marginLeft: 18,
+        fontSize: scale * 7,
+        marginLeft: width * 0.24,
     },
     priceText: {
-        fontSize: 16,
-        marginLeft: 30,
+        fontSize: scale * 6,
+        marginLeft: width * 0.24,
         fontWeight: 'bold',
 
     },
     copyright: {
-        fontSize: 20,
-        marginLeft: 18,
+        fontSize: scale * 7,
+        marginLeft: width * 0.19,
     },
     copyrightText: {
-        fontSize: 16,
-        marginLeft: 30,
+        fontSize: scale * 6,
+        marginLeft: width * 0.19,
         fontWeight: 'bold',
     },
     copyrightContainer: {

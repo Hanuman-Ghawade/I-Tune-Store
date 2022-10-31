@@ -5,13 +5,14 @@ import { styles } from './cardStyle';
 import {Picker} from '@react-native-picker/picker';
 import {useNavigation } from '@react-navigation/native'
 import axios from 'axios';
+import { Entry} from '../../constants/iTuneStore/Interfaces';
 
 
-var allCategory: any[];
+var allCategory: string[];
 const MusicCard  = () => {
-    const [data, setData] = useState<any[]>([]);
+    const [data, setData] = useState<Entry[]>([]);
     const [search, setSearch] = useState<string>('');
-    const [masterData, setMasterData] = useState<any[]>([])
+    const [masterData, setMasterData] = useState<Entry[]>([])
     const [category, setCategory] = useState(allCategory)
     const [selectedLanguage, setSelectedLanguage] = useState<string>('');
     const navigation = useNavigation<any>()
@@ -30,7 +31,7 @@ useEffect(() => {
   });  
 },[])
 
-const navigateDetailPage  = (item: any) => {
+const navigateDetailPage  = (item: Entry) => {
   navigation.navigate(jsonConstant.detailPage,{
         title: item.title.label,
         appName: item[jsonConstant.name].label,
@@ -42,12 +43,11 @@ const navigateDetailPage  = (item: any) => {
         price: item[jsonConstant.price].attributes.amount,
       });
 }
-const gridView  = ({item}: {item: any}) => {
+const gridView  = ({item}:{item: Entry} ) => {
   return (
-     <View style={{width: 180, marginLeft: 15}}>
-
+     <View style={styles.gridListContainer}>
        <TouchableNativeFeedback
-      onPress={(item) => navigateDetailPage(item) }
+      onPress={() => navigateDetailPage(item) }
       >
             <View style={styles.gridContainer}>
               <View style={styles.gridImageContainer}>
@@ -58,11 +58,9 @@ const gridView  = ({item}: {item: any}) => {
               </View>
               <View style={styles.gridNameCategory}>
 
-                <Text style={styles.gridName} numberOfLines={1}>{item[jsonConstant.name].label}</Text>
-                <Text style={styles.gridArtist} numberOfLines={1}>
-                  {item[jsonConstant.artist].label}
-                </Text>
-                <Text style={styles.gridReleaseDate}>
+                <Text style={styles.gridName} numberOfLines={2}>{item[jsonConstant.name].label}</Text>
+        
+                <Text  numberOfLines={2} style={styles.gridReleaseDate}>
                   {item[jsonConstant.releaseDate].attributes.label}
                 </Text>
               </View>
@@ -71,7 +69,7 @@ const gridView  = ({item}: {item: any}) => {
      </View>
   )
 }
-const listView = ({item}: {item: any}) => {
+const listView = ({item}: {item: Entry}) => {
   return (
      <View>
        <TouchableNativeFeedback
@@ -121,7 +119,7 @@ const filterItem = (categoryItem: string) => {
 
 const searchFilter = (text: string) => {
     if (text) {
-        const newData: string[] = masterData.filter((item) => {
+        const newData: Entry[] = masterData.filter((item) => {
             const itemData: string = item[jsonConstant.name].label 
             ? item[jsonConstant.name].label.toString().toUpperCase()
             : ''.toString().toUpperCase();
@@ -197,13 +195,15 @@ const toggleSwitch =(value: boolean) => {
         switchValue === false 
         ?  <FlatList
         data={data}
-        keyExtractor={(item) =>  item.id.attributes[jsonConstant.id]}
+        key={'_'}
+        keyExtractor={({},index) => index.toString()}
         renderItem={listView}
       />
       : <FlatList
         data={data}
+        key={'#'}
         numColumns={2}
-        keyExtractor={(item) => item.id.attributes[jsonConstant.id]}
+        keyExtractor={({},index) => index.toString()}
         renderItem={gridView}
       />
       }

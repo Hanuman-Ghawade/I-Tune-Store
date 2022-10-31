@@ -1,4 +1,5 @@
 
+
     export interface Name {
         label: string;
     }
@@ -63,8 +64,8 @@
     }
 
     export interface Attributes5 {
-        [im:id]: string;
-        [im:bundleId]: string;
+        'im:id': string;
+        "im:bundleId": string;
     }
 
     export interface Id {
@@ -82,7 +83,7 @@
     }
 
     export interface Attributes7 {
-        [im:id]: string;
+        'im:id': string;
         term: string;
         scheme: string;
         label: string;
@@ -102,18 +103,18 @@
     }
 
     export interface Entry {
-        [im:name]: ImName;
+        "im:name": ImName;
         rights: Rights;
-        [im: price]: ImPrice;
-        [im: image]: ImImage[];
-        [im:artist]: ImArtist;
-        title: Title;
-        link: Link;
-        id: Id;
-        [im:contentType]: ImContentType;
-        category: Category;
-        [im:releaseDate]: ImReleaseDate;
-    }
+        "im:price": ImPrice;
+        "im:image": ImImage[];
+    "im:artist": ImArtist;
+    title: Title;
+    link: Link;
+    id: Id;
+    "im:contentType": ImContentType;
+    category: Category;
+    "im:releaseDate": ImReleaseDate;
+}
 
 export interface Updated {
     label: Date;

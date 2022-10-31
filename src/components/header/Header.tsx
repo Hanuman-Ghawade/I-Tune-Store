@@ -28,10 +28,9 @@ const Header = () => {
         />
         </TouchableOpacity>
       </View>
-      <View style={styles.headerContainer}>
+      <View>
         <Text style={styles.headerText}>{data && data.author.name.label}</Text>
-      </View>
-      
+      </View> 
     </View>
   );
 };

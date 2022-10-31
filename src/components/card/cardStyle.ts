@@ -1,59 +1,61 @@
 import { jsonConstant } from './../../constants/iTuneStore/json';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const {height, width, fontScale ,scale} = Dimensions.get('window');
+console.log(height);
+console.log(width);
 
 const styles = StyleSheet.create({
-    separator: {
-        height: 5,
-        width: '100%',
-    },
     searchCategory: {
-        width: '100%',
+        width: width * 1,
     },
     image: {
-        width: 85,
-        height: 85,  
+        width: width * 0.2,
+        height: height * 0.12,  
     },
     imageContainer: {
         borderRadius: 30,
     },
     name: {
-        fontSize: 19,
+        fontSize: scale * 7.5,
         fontWeight: 'bold',
         width: '100%',
     },
     artist: {
-        fontSize: 18,
+        fontSize: scale * 7,
+        fontWeight: 'bold',
         width: '100%',
-
     },
     releaseDate: {
-        fontSize: 14,
-        paddingLeft: 10,
+        fontSize: scale * 5.2,
+        paddingLeft: width * 0.01,
+        fontWeight: 'bold',
+        paddingTop: 5,
     },
     nameCategory: {
         flexDirection: 'column',
-        paddingLeft: 10,
+        paddingLeft: width * 0.04,
         flex: 1,
     },
     listContainer: {
         flexDirection: 'row',
-        borderRadius: 8,
+        borderRadius: 10,
         shadowOffset: {
             width: 9,
             height: 9,
         },
         shadowOpacity: 0.4,
         shadowRadius: 25,
-        elevation: 10,
+        elevation: 30,
         backgroundColor: jsonConstant.listBackgroundColor,
-        padding: 10,
-        margin: 10,
+        padding: width * 0.04,
+        margin: width * 0.025,
     },
     searchInputStyle: {
-        height: 50,
+        height: height * 0.07,
         borderWidth: 1.5,
         paddingLeft: 20,
-        margin: 12,
+        margin: width * 0.04,
         borderColor: jsonConstant.searchInputBorderColor,
         backgroundColor: jsonConstant.searchInputBackgroundColor,
         borderRadius: 10,
@@ -62,32 +64,27 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
        alignItems: 'center',
     },
-    button: {
-        alignItems: "center",
-        padding: 10
-    },
     categoryText: {
-        padding: 10,
         borderWidth: 1,
         borderColor: jsonConstant.categoryTextBorderColor,
         fontWeight: 'bold',
-        fontSize: 16,
-        margin: 5,
+        fontSize: scale * 8,
+        margin: width * 0.02,
         borderRadius: 18,
         backgroundColor: jsonConstant.categoryTextBackgroundColor,
     },
     pickerItem: {
-        fontSize: 18,
+        fontSize: scale * 8,
     },
     pickerContainer: {
         backgroundColor: jsonConstant.pickerContainerColor,
-        marginLeft: 30,
+        marginLeft: width * 0.03,
         padding: 8,
-        marginRight: 10,
+        marginRight: width * 0.03,
 
     },
     pickerCategory: {
-        width: 250 ,
+        width: width * 0.55 ,
 
     },
     filterItem: {
@@ -95,11 +92,11 @@ const styles = StyleSheet.create({
 
     },
     toggleText: {
-        fontSize: 20,
+        fontSize: scale * 8,
     },
     toggleView: {
     flexDirection: 'row',
-    padding: 13,
+    padding: width * 0.03,
     },
     gridContainer: {
         flexDirection: 'row',
@@ -112,16 +109,16 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         elevation: 10,
         backgroundColor: jsonConstant.listBackgroundColor,
-        padding: 5,
-        margin: 5,
+        padding: width * 0.02,
+        margin: width * 0.015,
     },
     gridImageContainer: {
         borderRadius: 15,
  
     },
     gridImage: {
-        width: 70,
-        height: 70, 
+        width: width * 0.15,
+        height: height * 0.1, 
     },
     gridNameCategory: {
         flexDirection: 'column',
@@ -129,21 +126,26 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     gridName: {
-        fontSize: 13,
+        fontSize: fontScale * 12 ,
         fontWeight: 'bold',
         width: '100%'
 
     },
     gridArtist: {
-        fontSize: 1,
-        width: '100%'
+        width: '100%',
+        fontSize: fontScale * 18,
+        fontWeight: 'bold',
 
     },
     gridReleaseDate: {
-    fontSize: 12,
-    padding: 5,
+    fontSize: fontScale * 13,
+    padding: width * 0.01,
     width: '100%',
-    }
+    },
+    gridListContainer: {
+       width: width - 222, 
+       marginLeft: width * 0.035
+    },
 });
 
 export { styles };

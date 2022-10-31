@@ -1,9 +1,8 @@
-import React from "react";
-
+import { jsonConstant } from "../../constants/iTuneStore/json"
 
  export const decrementCount = (num: number) => {
     return {
-        type: 'DECREMENT',
+        type: jsonConstant.DECREMENT,
         payload: num
 
     }
@@ -11,7 +10,13 @@ import React from "react";
 
 export const incrementCount = (num: number) => {
     return {
-        type: 'INCREMENT',
+        type: jsonConstant.INCREMENT,
         payload: num
+    }
+}
+
+export const reset = () => {
+    return {
+        type: jsonConstant.RESET
     }
 }
